@@ -1,0 +1,147 @@
+/* 
+ * File:   main.cpp
+ * Author: Carlos
+ *
+ * Created on June 18, 2019, 9:15 PM
+ */
+
+#include <cstdlib>
+#include <iostream>
+
+using namespace std;
+
+/*
+ * Prompts the user to enter a positive integer, think of this integer as representing a specific number of pennies.
+ * The program should calculate and display the least possible number of coins 
+ * (quarters, dimes, nickels and cents) that may be used to represent the number of pennies entered by the user. 
+ * For Example: If the user enters 28, then the program should display 1 quarter and 3 pennies.
+ * The program MUST display the results using proper grammar (singular or plural). 
+ */
+
+// function prototypes
+int quarters (int x);
+int dimes (int x);
+int nickels (int x);
+int pennies (int x);
+
+int main(void) 
+{
+    // initialize variables  
+     //bool run = true;
+     int userInput = 0;
+     
+     // keep the program looping until the user 
+     // decides to close it 
+     // while (run)
+     //{
+         cout << "Input a positive integer over zero that\n" << "represents how many pennies you have.\n";
+         cin >> userInput;
+        /*if (userInput <= 0)
+         { 
+             // limit scope of char variable to block it is needed in  
+             char c;
+             cout << "Value is not a positive integer over zero" << endl;
+             cout << "Would you like to try again? Y/N \n";
+             // use character input to check if user 
+             // wants to keep going
+             cin >> c;
+             if (c == 'Y' || c == 'y')
+             {
+                 // shoots to the top of containing loop
+                 // in this case the while loop and runs the condition again 
+                 continue;
+             }
+             else 
+             {
+                 cout << "Program exiting" << endl;
+                 run = false;
+             }
+             // end of initial if loop
+         }
+         else 
+         {
+             // multiple function calls passing return values
+             pennies(nickels(dimes(quarters(userInput))));
+             // end while loop
+             run = false;
+         }
+         
+     }*/
+         // multiple function calls passing return values
+             pennies(nickels(dimes(quarters(userInput))));
+    return 0;
+}
+
+int quarters (int x)
+{
+    // uInput is passed in 
+    // divide by coin number to get coins 
+    int Qcoin = x / 25; 
+    if (Qcoin == 0 )
+    {
+        cout << "";
+    }
+    else if (Qcoin == 1)
+    {
+        cout << Qcoin << " quarter" << endl;
+    }
+    else 
+    {
+        cout << Qcoin << " quarters" << endl;
+    }
+    // return the remainder of passed in value
+    return x % 25;   
+}
+int dimes (int x)
+{
+    int Dcoin = x / 10;
+    if (Dcoin == 0)
+    {
+        cout << "";
+    }
+    else if (Dcoin == 1)
+    {
+        cout << Dcoin << " dime" << endl;
+    }
+    else 
+    {
+        cout << Dcoin << " dimes" << endl;
+    }
+    
+    return x % 10;
+}
+int nickels (int x)
+{
+    int Ncoin = x / 5;
+    if (Ncoin == 0)
+    {
+        cout << "";
+    }
+    else if (Ncoin == 1)
+    {
+        cout << Ncoin << " nickel" << endl;
+    }
+    else 
+    {
+        cout << Ncoin << " nickels" << endl;
+    }
+     
+    return x % 5;
+}
+int pennies (int x)
+{
+    int Pcoin = x / 1;
+    if (Pcoin == 0)
+    {
+        cout << "You have nothing.";
+    }
+    else if (Pcoin == 1)
+    {
+        cout << Pcoin << " penny" << endl;
+    }
+    else 
+    {
+        cout << Pcoin << " pennies" << endl;
+    }
+    return Pcoin;
+}
